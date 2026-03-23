@@ -127,13 +127,12 @@ export const SessionShareTable = sqliteTable("session_share", {
 
 export const WorkspaceTable = sqliteTable("workspace", {
   id: text().primaryKey(),
-  // type: text().notNull(),
+  type: text().notNull(),
   branch: text(),
-  // name: text(),
-  // directory: text(),
-  // extra: text({ mode: "json" }),
+  name: text(),
+  directory: text(),
+  extra: text({ mode: "json" }),
   project_id: text()
     .notNull()
     .references(() => ProjectTable.id, { onDelete: "cascade" }),
-  config: text().notNull(),
 })

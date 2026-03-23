@@ -101,7 +101,7 @@ async function removeSingleProject(projectId: string) {
   
   // Delete workspaces
   const workspaces = await db
-    .select()
+    .select({ id: WorkspaceTable.id })
     .from(WorkspaceTable)
     .where(eq(WorkspaceTable.project_id, projectId))
   if (workspaces.length > 0) {

@@ -1,10 +1,10 @@
 {
   "name": "opencode-project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool for managing OpenCode projects",
   "type": "module",
   "bin": {
-    "opencode-project": "./dist/index.js"
+    "opencode-project": "dist/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/linchen1987/opencode-project-manager.git"
+    "url": "git+https://github.com/linchen1987/opencode-project-manager.git"
   },
   "bugs": {
     "url": "https://github.com/linchen1987/opencode-project-manager/issues"
