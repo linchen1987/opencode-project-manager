@@ -1,6 +1,6 @@
 {
   "name": "opencode-project",
-  "version": "1.17.1",
+  "version": "1.17.2",
   "description": "CLI tool for managing OpenCode projects",
   "type": "module",
   "bin": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/linchen1987/opencode-project-manager#readme",
   "scripts": {
-    "build": "tsup index.ts --format esm --dts --clean",
+    "build": "tsup",
     "dev": "tsx index.ts",
     "test": "vitest run",
     "prepublishOnly": "pnpm run build",
