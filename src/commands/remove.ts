@@ -76,7 +76,7 @@ async function removeSingleProject(projectId: string) {
     
     // Count and delete todos
     const todos = await db
-      .select()
+      .select({ session_id: TodoTable.session_id })
       .from(TodoTable)
       .where(inArray(TodoTable.session_id, sessionIds))
     if (todos.length > 0) {
@@ -91,7 +91,7 @@ async function removeSingleProject(projectId: string) {
   
   // Delete permissions
   const permissions = await db
-    .select()
+    .select({ id: PermissionTable.id })
     .from(PermissionTable)
     .where(eq(PermissionTable.project_id, projectId))
   if (permissions.length > 0) {

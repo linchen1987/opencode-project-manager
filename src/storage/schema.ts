@@ -108,11 +108,13 @@ export const TodoTable = sqliteTable(
 )
 
 export const PermissionTable = sqliteTable("permission", {
+  id: text().primaryKey(),
   project_id: text()
-    .primaryKey()
+    .notNull()
     .references(() => ProjectTable.id, { onDelete: "cascade" }),
+  action: text().notNull(),
+  resource: text().notNull(),
   ...Timestamps,
-  data: text({ mode: "json" }).notNull().$type<unknown>(),
 })
 
 export const SessionShareTable = sqliteTable("session_share", {
@@ -128,11 +130,12 @@ export const SessionShareTable = sqliteTable("session_share", {
 export const WorkspaceTable = sqliteTable("workspace", {
   id: text().primaryKey(),
   type: text().notNull(),
+  name: text().notNull().default(""),
   branch: text(),
-  name: text(),
   directory: text(),
   extra: text({ mode: "json" }),
   project_id: text()
     .notNull()
     .references(() => ProjectTable.id, { onDelete: "cascade" }),
+  time_used: integer().notNull().default(0),
 })
