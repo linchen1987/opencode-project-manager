@@ -1,6 +1,6 @@
 {
   "name": "opencode-project",
-  "version": "1.0.1",
+  "version": "1.17.1",
   "description": "CLI tool for managing OpenCode projects",
   "type": "module",
   "bin": {

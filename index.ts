@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 import "dotenv/config"
+import { createRequire } from "module"
 import { Command } from "commander"
+
+const require = createRequire(import.meta.url)
+const pkg = require("./package.json")
 import { listProjects } from "./src/commands/list"
 import { removeProject } from "./src/commands/remove"
 import { setDataPath, config } from "./src/config"
@@ -10,7 +14,7 @@ const program = new Command()
 program
   .name("opencode-project")
   .description("OpenCode Project Manager CLI")
-  .version("1.0.0")
+  .version(pkg.version)
   .option("-d, --data-path <path>", "Path to opencode data directory or database file")
   .option("-v, --verbose", "Enable verbose output")
   .hook("preAction", (thisCommand) => {
